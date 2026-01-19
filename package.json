@@ -1,0 +1,16 @@
+{
+  "name": "web-benchmark",
+  "version": "1.0.0",
+  "description": "Website to host and perform benchmarks for various web things.",
+  "homepage": "https://github.com/ilyasmirnov03/web-benchmark#readme",
+  "bugs": {
+    "url": "https://github.com/ilyasmirnov03/web-benchmark/issues"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyasmirnov03/web-benchmark.git"
+  },
+  "license": "ISC",
+  "author": "ilyasmirnov03"
+}
