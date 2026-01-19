@@ -1,18 +1,31 @@
 import { replicate } from "../../replicateObjects.js";
 import { runBenchmark } from "../../runBenchmark.js";
 
-const hundred = replicate(100);
 const tenThousand = replicate(10000);
 const million = replicate(1000000);
 
-const classicTransform = runBenchmark('transform data without iterators', () => {
+const classicTenThousandTransform = runBenchmark('transform data without iterators', () => {
+  tenThousand
+    .filter(i => i.isVisible)
+    .map(i => i.name)
+    .slice(0, 10)
+});
+const classicMillionTransform = runBenchmark('transform data without iterators', () => {
   million
     .filter(i => i.isVisible)
     .map(i => i.name)
     .slice(0, 10)
 });
 
-const iteratorTransform = runBenchmark('transform data using iterators', () => {
+const iteratorTenThousandTransform = runBenchmark('transform data using iterators', () => {
+  tenThousand
+    .values()
+    .filter(i => i.isVisible)
+    .map(i => i.name)
+    .take(10)
+    .toArray()
+});
+const iteratorMillionTransform = runBenchmark('transform data using iterators', () => {
   million
     .values()
     .filter(i => i.isVisible)
@@ -21,4 +34,9 @@ const iteratorTransform = runBenchmark('transform data using iterators', () => {
     .toArray()
 });
 
-console.log(classicTransform.duration, iteratorTransform.duration);
+const results = {
+  classic: [classicTenThousandTransform.duration, classicMillionTransform.duration],
+  iterator: [iteratorTenThousandTransform.duration, iteratorMillionTransform.duration],
+}
+
+console.log(results);
