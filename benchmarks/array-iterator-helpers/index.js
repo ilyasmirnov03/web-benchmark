@@ -1,5 +1,5 @@
-import { replicate } from "../../replicateObjects.js";
-import { runBenchmark } from "../../runBenchmark.js";
+import { replicate } from "../../utils/replicateObjects.js";
+import { runBenchmark } from "../../utils/runBenchmark.js";
 
 const tenThousand = replicate(10000);
 const million = replicate(1000000);
